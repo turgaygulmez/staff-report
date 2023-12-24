@@ -1,0 +1,31 @@
+{
+  "name": "staff-report",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/jira-client": "^7.1.9",
+    "@types/lodash": "^4.14.202",
+    "@types/uuid": "^9.0.7",
+    "nuxt": "^3.7.4",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.3.67",
+    "jira-client": "^8.2.2",
+    "lodash": "^4.17.21",
+    "lowdb": "^6.1.1",
+    "node-json-db": "^2.3.0",
+    "sass": "^1.69.0",
+    "uuid": "^9.0.1",
+    "vuetify": "^3.4.3"
+  }
+}
