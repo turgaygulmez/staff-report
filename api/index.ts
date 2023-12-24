@@ -1,11 +1,17 @@
 import Service from "./service";
 
-class API {
-  private service;
+export default class API {
+  private static instance: API;
+
+  public service;
 
   constructor() {
     this.service = new Service();
+
+    if (API.instance) {
+      return API.instance;
+    }
+
+    API.instance = this;
   }
 }
-
-export default Object.freeze(new API());

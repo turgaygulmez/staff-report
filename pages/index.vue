@@ -1,17 +1,25 @@
 <template>
-  <div class="p-8">
-    <v-text-field v-model="jiraDomain" label="domain" />
-    <v-text-field v-model="jiraUserName" label="username" />
-    <v-text-field v-model="jiraToken" label="token" />
+  <div class="pa-6" v-if="!isUserLoading">
+    <RegisterForm v-if="!user" @create="createUser" />
+    <div v-else>
+      <h1>Welcome {{ user?.id }}</h1>
 
-    <v-btn @click="createUser"> Create user </v-btn>
+      <div v-if="configs">
+        <div v-for="(config, idx) in configs" :key="idx">{{ config.name }}</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import API from "@/api";
+import { RegisterForm } from "@/components/molecules";
+import { mapState, mapActions } from "pinia";
+import { useConfigStore, useUserStore } from "@/store";
 
 export default {
+  components: {
+    RegisterForm,
+  },
   data() {
     return {
       projects: null,
@@ -20,26 +28,24 @@ export default {
       selectedBoard: null,
       sprints: null,
       selectedSprint: null,
-      jiraDomain: null,
-      jiraUserName: null,
-      jiraToken: null,
     };
   },
 
   async created() {
-    // get user
+    // identify current user based on your system
+    await this.getUser(import.meta.env.VITE_ACTIVE_USER);
+
+    await this.getConfigs(import.meta.env.VITE_ACTIVE_USER);
   },
 
-  computed: {},
+  computed: {
+    ...mapState(useUserStore, ["user", "isUserLoading"]),
+    ...mapState(useConfigStore, ["configs", "isConfigsLoading"]),
+  },
 
   methods: {
-    createUser() {
-      API.service.createUser({
-        jiraDomain: this.jiraDomain,
-        jiraUserName: this.jiraUserName,
-        jiraToken: this.jiraToken,
-      });
-    },
+    ...mapActions(useUserStore, ["getUser", "createUser"]),
+    ...mapActions(useConfigStore, ["getConfigs"]),
   },
 };
 </script>

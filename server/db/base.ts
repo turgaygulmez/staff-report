@@ -14,6 +14,7 @@ export default class BaseDatabase {
     const adapter = new JSONFileSync<DBStructure>("./server/db/data/db.json");
     const defaultValue: DBStructure = {
       users: [],
+      configs: [],
     };
     this.database = new LowWithLodash(adapter, defaultValue);
     this.database.read();

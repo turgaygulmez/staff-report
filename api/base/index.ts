@@ -1,6 +1,6 @@
 export default class BaseService {
-  post({ url, data }: { url: string; data: any }) {
-    $fetch(`/api/${url}`, {
+  post<T>({ url, data }: { url: string; data: any }) {
+    return $fetch<T>(`/api/${url}`, {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -8,5 +8,9 @@ export default class BaseService {
       },
       body: JSON.stringify(data),
     });
+  }
+
+  get<T>({ url }: { url: string }) {
+    return $fetch<T>(`/api/${url}`);
   }
 }

@@ -14,16 +14,19 @@ class UserDB extends BaseDatabase {
     UserDB.instance = this;
   }
 
-  async insert(data: User) {
-    const user = this.database.chain
-      .get("users")
-      .find({ jiraUserName: data.jiraUserName })
-      .value();
+  insert(data: User) {
+    const user = this.get(data.id);
 
     if (!user) {
       this.database.data.users.push(data);
       this.database.write();
     }
+
+    return this.get(data.id);
+  }
+
+  get(id: string) {
+    return this.database.chain.get("users").find({ id }).value();
   }
 }
 

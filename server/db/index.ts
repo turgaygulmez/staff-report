@@ -1,3 +1,4 @@
 import UserDB from "./user";
+import ConfigDB from "./config";
 
-export { UserDB };
+export { UserDB, ConfigDB };
