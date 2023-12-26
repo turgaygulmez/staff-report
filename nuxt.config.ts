@@ -1,12 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: [
-    "@mdi/font/css/materialdesignicons.css",
-    "vuetify/lib/styles/main.sass",
-  ],
-  modules: ["@pinia/nuxt"],
+  css: ["~/assets/main.css", "~/assets/reset.css"],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+  modules: ["@pinia/nuxt", "@ant-design-vue/nuxt"],
   build: {
-    transpile: ["vuetify"],
+    transpile: [],
   },
   devtools: { enabled: true },
   runtimeConfig: {},

@@ -1,0 +1,49 @@
+{
+  "form": {
+    "labelCol": 6,
+    "wrapperCol": 12
+  },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "jiraDomain": {
+        "type": "string",
+        "title": "Jira Domain",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-validator": [],
+        "x-component-props": {},
+        "x-decorator-props": {},
+        "x-designable-id": "zmithr24vb0",
+        "x-index": 0,
+        "name": "jiraDomain",
+        "required": true
+      },
+      "jiraUserName": {
+        "type": "string",
+        "title": "Jira UserName",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-validator": [],
+        "x-component-props": {},
+        "x-decorator-props": {},
+        "name": "jiraUserName",
+        "x-designable-id": "aur04v8ri5h",
+        "x-index": 1
+      },
+      "jiraToken": {
+        "type": "string",
+        "title": "Jira Token",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-validator": [],
+        "x-component-props": {},
+        "x-decorator-props": {},
+        "name": "jiraToken",
+        "x-designable-id": "ttogmb0vqxz",
+        "x-index": 2
+      }
+    },
+    "x-designable-id": "yi6hd009w1d"
+  }
+}

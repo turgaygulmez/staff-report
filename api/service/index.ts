@@ -6,7 +6,7 @@ export default class Service extends BaseService {
     return this.post({ url: "project", data });
   }
 
-  createUser(data: any): Promise<User> {
+  registerUser(data: any): Promise<User> {
     return this.post<User>({ url: "user", data });
   }
 
@@ -16,5 +16,9 @@ export default class Service extends BaseService {
 
   getConfigs(id: string): Promise<Config[]> {
     return this.get<Config[]>({ url: `config/${id}` });
+  }
+
+  getForm(schema: string) {
+    return this.get<any>({ url: `form/${schema}` });
   }
 }

@@ -1,1 +1,1 @@
-export { default as RegisterForm } from "./RegisterForm/RegisterForm.vue";
+export { default as DynamicForm } from "./DynamicForm/DynamicForm.vue";

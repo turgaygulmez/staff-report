@@ -13,9 +13,9 @@ export const useUserStore = defineStore("user", {
       this.user = await new API().service.getUser(id);
       this.isUserLoading = false;
     },
-    async createUser(payload: User) {
+    async registerUser(payload: User) {
       this.isUserLoading = true;
-      this.user = await new API().service.createUser(payload);
+      this.user = await new API().service.registerUser(payload);
       this.isUserLoading = false;
     },
   },
